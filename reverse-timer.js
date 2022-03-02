@@ -1,12 +1,12 @@
-
 var minutesElement = document.getElementById('minutes');
 var secondsElement = document.getElementById('seconds');
 var container = document.getElementById('displayed');
 
 
-var minutesCount = 2;
+var minutesCount = 1;
 var secondsCount = 0;
-
+// var minutesCount ;
+// var secondsCount ;
 
 function updateSeconds() {
 
@@ -34,7 +34,6 @@ function updateSeconds() {
                     body:'Time for a break!'
             });
         }
-
 
         if (Notification.permission === 'granted') {
             // alert('we have permission');    
@@ -69,3 +68,31 @@ function stopCount(){
     clearInterval(intervalId)
     buttonCount = 0;
 }
+
+var stopButton = document.getElementById('stop-timer')
+    stopButton.addEventListener("click", function () {
+
+        stopCount();
+    });
+
+
+var resetButton = document.getElementById('reset-timer')
+resetButton.addEventListener("click", function () {
+    
+        clearInterval(intervalId)
+    
+        
+        minutesElement.innerText = "01";
+        secondsElement.innerText = "00";
+    
+        
+        minutesCount = 1;
+        secondsCount = 0;
+    
+        buttonCount = 0;
+    
+    
+    
+})
+
+
